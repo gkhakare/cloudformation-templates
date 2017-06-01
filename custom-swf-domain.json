@@ -14,8 +14,8 @@
         "Region": {
           "Ref": "AWS::Region"
         },
-        "Name": "DomainName",
-        "WorkflowExecutionRetentionPeriodInDays": 30,
+        "Name": { "Ref" : "DomainName" },
+        "WorkflowExecutionRetentionPeriodInDays": { "Ref" : "RetentionPeriod" },
         "Description": "String"
       }
     },
@@ -129,5 +129,25 @@
         ]
       }
     }
-  }
+  },
+  "Parameters": {
+        "DomainName": {
+            "Type": "String",
+            "Description": "SWF Domain name",
+            "MinLength": "5",
+            "MaxLength": "100"
+        },
+        "RetentionPeriod": {
+            "Type": "Number",
+            "Description": "Workflow execution retention period in days",
+            "Default": 30,
+            "MinValue": 0,
+            "MaxValue": 90
+        },
+        "Description": {
+            "Type": "String",
+            "Description": "Description",
+            "Default": 30
+        }
+    }
 }
