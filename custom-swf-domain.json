@@ -146,8 +146,7 @@
         },
         "Description": {
             "Type": "String",
-            "Description": "Description",
-            "Default": 30
+            "Description": "Description"
         }
     }
 }
